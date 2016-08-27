@@ -7,12 +7,7 @@ import me.samen.pwm.data.Data
  * Created by santosh on 27/8/16.
  */
 class PWMApp : Application() {
-    private var _appData: Data = null!!
-    var appData:Data
-        get() = _appData
-        set(value) {
-            _appData = value
-        };
+    var appData: Data? = null
 
     override fun onCreate() {
         super.onCreate()
