@@ -9,8 +9,17 @@ class Data {
     private var _authenticated: Boolean? = null
     var authenticated: Boolean = false
 
-    fun getAccounts(): Array<UserAccount> = arrayOf<UserAccount>(UserAccount("site", "user",
-            "pwd"), UserAccount("site1", "user1", "pwd1"),UserAccount("site2", "use2r", "pwd2"))
+    fun getAccounts(): Array<UserAccount> {
+        try {
+
+            return arrayOf<UserAccount>(UserAccount("site", "user",
+                    "pwd"), UserAccount("site1", "user1", "pwd1"),UserAccount("site2", "use2r", "pwd2"))
+
+        } catch (e: Exception) {
+            return arrayOf<UserAccount>(UserAccount("site", "user",
+                    "pwd"), UserAccount("site1", "user1", "pwd1"),UserAccount("site2", "use2r", "pwd2"))
+        }
+    }
 
     fun addAccount(acc:UserAccount):Boolean = false
 
