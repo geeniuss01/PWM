@@ -12,7 +12,6 @@ import android.view.View
 import me.samen.pwm.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.data.Data
-import me.samen.pwm.data.UserAccount
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     var fab: FloatingActionButton? = null
@@ -28,13 +27,23 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
         fab = (findViewById(R.id.fab) as FloatingActionButton?)!!
         fab?.setOnClickListener { view ->
-            val acc: Array<UserAccount>? = appData?.getAccounts()
-            Snackbar.make(view, " ${acc?.get(0)} total size ${acc?.size}", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+            startActivity(Intent(this, EditActivity::class.java))
         }
         recyclerView = (findViewById(R.id.list) as RecyclerView?)!!
-        recyclerView?.adapter = AccListAdapter(appData?.getAccounts()!!,this,this)
+        recyclerView?.adapter = AccListAdapter(appData?.getAccounts()!!, this, this)
         recyclerView?.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!appData?.authenticated!!) {
+            startActivity(Intent(this, SetupActivity::class.java))
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        appData?.authenticated = false
     }
 
     override fun onClick(v: View?) {

@@ -7,11 +7,10 @@ import me.samen.pwm.data.Data
  * Created by santosh on 27/8/16.
  */
 class PWMApp : Application() {
-    var appData: Data? = null
+    val appData = Data()
 
     override fun onCreate() {
         super.onCreate()
-        appData= Data();
     }
 
 }
