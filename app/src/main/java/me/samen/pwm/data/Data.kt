@@ -1,5 +1,7 @@
 package me.samen.pwm.data
 
+import com.orm.SugarRecord
+
 /**
  * Handles user prefs, SugarORM DB, all strings are encrypted before storing to db
  *
@@ -11,10 +13,7 @@ class Data {
 
     fun getAccounts(): Array<UserAccount> {
         try {
-
-            return arrayOf<UserAccount>(UserAccount("site", "user",
-                    "pwd"), UserAccount("site1", "user1", "pwd1"),UserAccount("site2", "use2r", "pwd2"))
-
+            return SugarRecord.listAll(UserAccount::class.java).toTypedArray()
         } catch (e: Exception) {
             return arrayOf<UserAccount>(UserAccount("site", "user",
                     "pwd"), UserAccount("site1", "user1", "pwd1"),UserAccount("site2", "use2r", "pwd2"))
@@ -30,4 +29,9 @@ class Data {
     fun savePin(pin: String) = false
 
     fun getPin(): String = "1313"
+
+    fun convert(): Array<UserAccount> {
+        val elems = arrayListOf<UserAccount>()
+        return elems.toTypedArray()
+    }
 }
