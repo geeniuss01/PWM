@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.list_item_card.view.*
 import me.samen.pwm.R
 import me.samen.pwm.data.UserAccount
+import java.util.*
 
 /*
  * Copyright (c) 2016 Newshunt. All rights reserved.
  */
-class AccListAdapter(val items: Array<UserAccount>, val listener1: View.OnClickListener, val listener2: View.OnClickListener) : RecyclerView.Adapter<AccListAdapter
-.AccListViewHolder>() {
+class AccListAdapter(val items: ArrayList<UserAccount>, val listener1: View.OnClickListener, val
+listener2: View.OnClickListener) : RecyclerView.Adapter<AccListAdapter.AccListViewHolder>() {
 
     override fun getItemCount(): Int {
         return items.size

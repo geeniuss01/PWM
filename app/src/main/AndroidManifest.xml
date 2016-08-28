@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="me.samen.pwm">
+<manifest package="me.samen.pwm"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -17,6 +17,7 @@
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,16 +25,30 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.SetupActivity">
+        <activity
+            android:name=".ui.SetupActivity"
+            android:screenOrientation="portrait"
+            >
         </activity>
-        <activity android:name=".ui.EditActivity">
+        <activity
+            android:name=".ui.EditActivity"
+            android:screenOrientation="portrait"
+            >
         </activity>
 
 
-        <meta-data android:name="DATABASE" android:value="PWM.db" />
-        <meta-data android:name="VERSION" android:value="1" />
-        <meta-data android:name="QUERY_LOG" android:value="true" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="me.samen.pwm" />
+        <meta-data
+            android:name="DATABASE"
+            android:value="PWM.db"/>
+        <meta-data
+            android:name="VERSION"
+            android:value="1"/>
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true"/>
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="me.samen.pwm"/>
 
     </application>
 

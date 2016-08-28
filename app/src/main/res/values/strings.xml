@@ -20,4 +20,8 @@
     <string name="website">Website name</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="setup_wrong_pin">Nope, that\'s wrong. Try again</string>
+    <string name="setup_choose_pin">Choose a 4-digit PIN carefully! Once set, you cannot change
+        it later(not without losing data)</string>
+    <string name="setup_enter_pin">Enter your PIN ...</string>
 </resources>

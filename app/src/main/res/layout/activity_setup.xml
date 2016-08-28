@@ -15,8 +15,19 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText"
+        android:hint="@string/setup_enter_pin"
+        android:id="@+id/editTextPin"
         android:imeOptions="actionGo"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/setup_choose_pin"
+        android:id="@+id/textViewInstruction"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"></TextView>
+
 </RelativeLayout>

@@ -11,6 +11,7 @@
     tools:context="me.samen.pwm.ui.EditActivity">
 
     <EditText
+        android:enabled="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"

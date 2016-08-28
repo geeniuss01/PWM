@@ -9,6 +9,6 @@ import com.orm.dsl.Table
  */
 
 @Table
-class UserAccount(val website: String, val username: String, val pwd: String) {
-
+class UserAccount(val website: String, var username: String, var pwd: String) {
+    var id: Int? = null
 }
