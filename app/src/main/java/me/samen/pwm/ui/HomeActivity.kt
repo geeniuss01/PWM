@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         fab?.setOnClickListener { view ->
             startActivity(Intent(this, EditActivity::class.java))
         }
-        adapter = AccListAdapter(appData?.getUAccounts()!!, this, this)
+        adapter = AccListAdapter(appData?.getSugarAcc()!!, this, this)
         recyclerView = (findViewById(R.id.list) as RecyclerView?)!!
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(this)
@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         if (!appData?.authenticated!!) {
             startActivity(Intent(this, SetupActivity::class.java))
         } else {
-            appData?.getUAccounts()
+            appData?.getSugarAcc()
             adapter?.notifyDataSetChanged()
         }
     }
@@ -54,7 +54,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val pos = v?.tag as Int
-        val pwd = appData?.getUAccounts()!!.get(pos).pwd as String
+        val pwd = appData?.getSugarAcc()!!.get(pos).pwd as String
         when (v?.id) {
             R.id.textView, R.id.textView2 -> Snackbar.make(v!!, pwd, Snackbar.LENGTH_SHORT).setAction("ach", null).show()
             R.id.textView3 -> {

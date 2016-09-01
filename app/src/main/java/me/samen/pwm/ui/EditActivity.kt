@@ -3,6 +3,7 @@ package me.samen.pwm.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_edit.*
 import me.samen.pwm.PWMApp
 import me.samen.pwm.R
@@ -20,7 +21,7 @@ class EditActivity : AppCompatActivity(),View.OnClickListener {
         buttonDelete.setOnClickListener(this)
         var pos = intent.getIntExtra("pos", -1)
         if (pos != -1) {
-            selectedAcc = appData?.getUAccounts()!!.get(pos!!)
+            selectedAcc = appData?.getSugarAcc()!!.get(pos!!)
             editTextWebsite.setText(selectedAcc?.website)
             editTextId.setText(selectedAcc?.username)
             editTextPwd.setText(selectedAcc?.pwd)
@@ -33,19 +34,18 @@ class EditActivity : AppCompatActivity(),View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.buttonAddUpdate -> {
-                //SugarRecord.save(ua)
                 if (selectedAcc == null) {
                     val ua = UserAccount(editTextWebsite.text.toString(), editTextPwd.text.toString(), editTextPwd.text.toString())
-                    appData?.addAccount(ua)
+                    SugarRecord.save(ua)
                 } else {
                     selectedAcc!!.username = editTextId.text.toString()
-                    selectedAcc!!.pwd = editTextId.text.toString()
-                    appData?.editAccount(selectedAcc!!)
+                    selectedAcc!!.pwd = editTextPwd.text.toString()
+                    SugarRecord.save(selectedAcc)
                 }
                 finish()
             }
             R.id.buttonDelete -> {
-                if (selectedAcc != null) appData?.deleteAccount(selectedAcc!!)
+                if (selectedAcc != null) SugarRecord.delete(selectedAcc)
                 finish()}
         }
     }
