@@ -24,4 +24,5 @@
     <string name="setup_choose_pin">Choose a 4-digit PIN carefully! Once set, you cannot change
         it later(not without losing data)</string>
     <string name="setup_enter_pin">Enter your PIN ...</string>
+    <string name="error_empty">can\'t be empty</string>
 </resources>

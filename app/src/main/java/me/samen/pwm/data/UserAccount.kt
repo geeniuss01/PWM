@@ -9,8 +9,12 @@ import com.orm.dsl.Table
  */
 
 @Table
-class UserAccount(val website: String, var username: String, var pwd: String){
+class UserAccount(var website: String?, var username: String?, var pwd: String?){
     var id: Long? = null
+    var _website:ByteArray? = null
+    var _username:ByteArray? = null
+    var _pwd:ByteArray? = null
+
     // empty constructor is needed for sugar
-    constructor() : this("","","")
+    constructor() : this(null,null,null)
 }

@@ -9,9 +9,6 @@ import me.samen.pwm.R
 import me.samen.pwm.data.UserAccount
 import java.util.*
 
-/*
- * Copyright (c) 2016 Newshunt. All rights reserved.
- */
 class AccListAdapter(val items: ArrayList<UserAccount>, val listener1: View.OnClickListener, val
 listener2: View.OnClickListener) : RecyclerView.Adapter<AccListAdapter.AccListViewHolder>() {
 

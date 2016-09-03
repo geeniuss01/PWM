@@ -3,20 +3,24 @@ package me.samen.pwm.ui
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.EditText
 import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_edit.*
+import me.samen.pwm.EncryptionUtil
 import me.samen.pwm.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.data.Data
 import me.samen.pwm.data.UserAccount
 
-class EditActivity : AppCompatActivity(),View.OnClickListener {
+class EditActivity : AppCompatActivity(), View.OnClickListener {
     var appData: Data? = null
-    var selectedAcc : UserAccount? = null
+    var encUtil: EncryptionUtil? = null
+    var selectedAcc: UserAccount? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
         appData = (application as PWMApp).appData!!
+        encUtil = (application as PWMApp).encUtil
         buttonAddUpdate.setOnClickListener(this)
         buttonDelete.setOnClickListener(this)
         var pos = intent.getIntExtra("pos", -1)
@@ -28,25 +32,42 @@ class EditActivity : AppCompatActivity(),View.OnClickListener {
             buttonAddUpdate.setText(resources.getString(R.string.Edit))
         } else {
             buttonDelete.visibility = View.GONE
-            editTextWebsite.isEnabled=true
+            editTextWebsite.isEnabled = true
+            editTextId.isEnabled = true
         }
-}
+    }
+
+    fun checkAndSetError(editText: EditText): Boolean {
+        if (editText.text.toString().isEmpty()) {
+            editText.setError(resources.getString(R.string.error_empty))
+            return true
+        }
+        return  false
+    }
+
     override fun onClick(v: View?) {
+        if (checkAndSetError(editTextWebsite) || checkAndSetError(editTextId) || checkAndSetError(editTextPwd)) {
+            return
+        }
         when (v?.id) {
             R.id.buttonAddUpdate -> {
                 if (selectedAcc == null) {
                     val ua = UserAccount(editTextWebsite.text.toString(), editTextPwd.text.toString(), editTextPwd.text.toString())
+                    appData?.encrpt(ua!!)
                     SugarRecord.save(ua)
                 } else {
-                    selectedAcc!!.username = editTextId.text.toString()
+                    encUtil?.encryptMsg(editTextId.text.toString(), encUtil?.generateKey()!!)
+                    //selectedAcc!!.username = editTextId.text.toString()
                     selectedAcc!!.pwd = editTextPwd.text.toString()
+                    appData!!.encrpt(selectedAcc!!)
                     SugarRecord.save(selectedAcc)
                 }
                 finish()
             }
             R.id.buttonDelete -> {
                 if (selectedAcc != null) SugarRecord.delete(selectedAcc)
-                finish()}
+                finish()
+            }
         }
     }
 
