@@ -52,7 +52,8 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
             R.id.buttonAddUpdate -> {
                 if (selectedAcc == null) {
-                    val ua = UserAccount(editTextWebsite.text.toString(), editTextPwd.text.toString(), editTextPwd.text.toString())
+                    val ua = UserAccount(editTextWebsite.text.toString(), editTextId.text.toString(),
+                            editTextPwd.text.toString())
                     appData?.encrpt(ua!!)
                     SugarRecord.save(ua)
                 } else {
