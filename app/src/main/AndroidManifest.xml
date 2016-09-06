@@ -28,6 +28,7 @@
         <activity
             android:name=".ui.SetupActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"
             >
         </activity>
         <activity
