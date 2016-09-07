@@ -1,7 +1,9 @@
 package me.samen.pwm.ui
 
 import android.os.Bundle
+import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.EditText
 import com.orm.SugarRecord
@@ -18,7 +20,12 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
     var selectedAcc: UserAccount? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit)
+        setContentView(R.layout.layout_edit)
+
+        val toolBar = findViewById(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolBar)
+        supportActionBar!!.title = "Edit Account"
+
         appData = (application as PWMApp).appData!!
         encUtil = (application as PWMApp).encUtil
         buttonAddUpdate.setOnClickListener(this)
@@ -31,6 +38,7 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
             editTextPwd.setText(selectedAcc?.pwd)
             buttonAddUpdate.setText(resources.getString(R.string.Edit))
         } else {
+            supportActionBar!!.title = "New Account"
             buttonDelete.visibility = View.GONE
             editTextWebsite.isEnabled = true
             editTextId.isEnabled = true

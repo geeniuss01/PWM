@@ -23,8 +23,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val toolbar = findViewById(R.id.toolbar) as Toolbar?
-        setSupportActionBar(toolbar)
+        val toolBar = findViewById(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolBar)
+
         appData = (application as PWMApp).appData
 
         fab = (findViewById(R.id.fab) as FloatingActionButton?)!!

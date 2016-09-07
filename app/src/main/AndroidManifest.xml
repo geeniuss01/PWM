@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="me.samen.pwm"
-          xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.READ_PROFILE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.samen.pwm">
 
     <application
         android:name=".PWMApp"
@@ -13,44 +8,42 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".ui.HomeActivity"
-            android:label="@string/title_activity_home"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.SetupActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateVisible"
-            >
-        </activity>
+            android:windowSoftInputMode="stateVisible"/>
         <activity
             android:name=".ui.EditActivity"
-            android:screenOrientation="portrait"
-            >
-        </activity>
-
+            android:label="@string/Edit"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="DATABASE"
-            android:value="PWM.db"/>
+            android:value="PWM.db" />
         <meta-data
             android:name="VERSION"
-            android:value="2"/>
+            android:value="2" />
         <meta-data
             android:name="QUERY_LOG"
-            android:value="true"/>
+            android:value="true" />
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
-            android:value="me.samen.pwm.data"/>
+            android:value="me.samen.pwm.data" />
 
+        <activity android:name=".ui.AppIntroActivity">
+        </activity>
     </application>
 
 </manifest>

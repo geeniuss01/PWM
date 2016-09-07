@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="me.samen.pwm.ui.SetupActivity">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberPassword"
         android:ems="10"
+        android:maxLength="4"
         android:hint="@string/setup_enter_pin"
         android:id="@+id/editTextPin"
         android:imeOptions="actionGo"
@@ -28,6 +30,14 @@
         android:text="@string/setup_choose_pin"
         android:id="@+id/textViewInstruction"
         android:visibility="gone"
-        android:layout_alignParentTop="true"></TextView>
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/editTextPin"
+        android:layout_margin="20dp"
+        android:src="@mipmap/ic_launcher"/>
 
 </RelativeLayout>
