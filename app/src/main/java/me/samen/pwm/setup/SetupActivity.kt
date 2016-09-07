@@ -1,13 +1,13 @@
-package me.samen.pwm.ui
+package me.samen.pwm.setup
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
 import kotlinx.android.synthetic.main.activity_setup.*
-import me.samen.pwm.PWMApp
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
-import me.samen.pwm.data.Data
+import me.samen.pwm.common.Data
 
 class SetupActivity : AppCompatActivity() {
     var appData: Data? = null

@@ -1,4 +1,4 @@
-package me.samen.pwm.data
+package me.samen.pwm.common
 
 import com.orm.dsl.Table
 

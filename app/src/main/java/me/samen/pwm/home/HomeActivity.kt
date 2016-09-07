@@ -1,4 +1,4 @@
-package me.samen.pwm.ui
+package me.samen.pwm.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
-import me.samen.pwm.PWMApp
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
-import me.samen.pwm.data.Data
+import me.samen.pwm.common.Data
+import me.samen.pwm.edit.EditActivity
+import me.samen.pwm.home.AccListAdapter
+import me.samen.pwm.setup.SetupActivity
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     var fab: FloatingActionButton? = null

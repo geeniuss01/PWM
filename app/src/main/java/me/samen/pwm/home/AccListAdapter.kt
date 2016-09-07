@@ -1,4 +1,4 @@
-package me.samen.pwm.ui
+package me.samen.pwm.home
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.list_item_card.view.*
 import me.samen.pwm.R
-import me.samen.pwm.data.UserAccount
+import me.samen.pwm.common.UserAccount
 import java.util.*
 
 class AccListAdapter(val items: ArrayList<UserAccount>, val listener1: View.OnClickListener, val

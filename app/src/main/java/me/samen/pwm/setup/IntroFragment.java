@@ -1,4 +1,4 @@
-package me.samen.pwm.ui;
+package me.samen.pwm.setup;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

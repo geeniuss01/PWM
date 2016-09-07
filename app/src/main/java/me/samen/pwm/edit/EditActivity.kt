@@ -1,18 +1,17 @@
-package me.samen.pwm.ui
+package me.samen.pwm.edit
 
 import android.os.Bundle
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.EditText
 import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_edit.*
-import me.samen.pwm.EncryptionUtil
-import me.samen.pwm.PWMApp
+import me.samen.pwm.common.EncryptionUtil
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
-import me.samen.pwm.data.Data
-import me.samen.pwm.data.UserAccount
+import me.samen.pwm.common.Data
+import me.samen.pwm.common.UserAccount
 
 class EditActivity : AppCompatActivity(), View.OnClickListener {
     var appData: Data? = null

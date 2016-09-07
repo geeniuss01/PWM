@@ -1,9 +1,8 @@
-package me.samen.pwm
+package me.samen.pwm.common
 
 import android.util.Log
 import com.orm.SugarApp
 import com.orm.SugarContext
-import me.samen.pwm.data.Data
 
 /**
  * Created by santosh on 27/8/16.

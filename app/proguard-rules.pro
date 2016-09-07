@@ -15,4 +15,4 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep class me.samen.pwm.data.UserAccount { *; }
+-keep class me.samen.pwm.common.UserAccount { *; }

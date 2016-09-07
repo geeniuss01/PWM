@@ -1,4 +1,4 @@
-package me.samen.pwm
+package me.samen.pwm.common
 
 import java.io.UnsupportedEncodingException
 import java.security.InvalidAlgorithmParameterException

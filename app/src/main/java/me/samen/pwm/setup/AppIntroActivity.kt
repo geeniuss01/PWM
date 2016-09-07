@@ -1,13 +1,9 @@
-package me.samen.pwm.ui
+package me.samen.pwm.setup
 
-import android.graphics.Color
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-
+import android.support.v4.app.Fragment
 import com.github.paolorotolo.appintro.AppIntro
 import com.github.paolorotolo.appintro.AppIntroFragment
-
 import me.samen.pwm.R
 
 class AppIntroActivity : AppIntro() {
