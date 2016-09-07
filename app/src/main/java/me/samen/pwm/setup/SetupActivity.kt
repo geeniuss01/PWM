@@ -1,5 +1,6 @@
 package me.samen.pwm.setup
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -13,6 +14,7 @@ class SetupActivity : AppCompatActivity() {
     var appData: Data? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.layout_setup)
         val toolBar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolBar)
@@ -42,4 +44,6 @@ class SetupActivity : AppCompatActivity() {
         }
         return true
     }
+
+
 }

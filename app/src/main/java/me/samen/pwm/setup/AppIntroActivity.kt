@@ -1,41 +1,45 @@
 package me.samen.pwm.setup
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.Window
+import android.view.WindowManager
 import com.github.paolorotolo.appintro.AppIntro
+import com.github.paolorotolo.appintro.AppIntro2
 import com.github.paolorotolo.appintro.AppIntroFragment
 import me.samen.pwm.R
 
-class AppIntroActivity : AppIntro() {
+class AppIntroActivity : AppIntro2() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        addSlide(AppIntroFragment.newInstance("OFFLINE", "Works offline, No need internet", R.mipmap.ic_launcher, R.color.primary))
-        addSlide(AppIntroFragment.newInstance("SECURE", "Data stored locally in your device. The Passwords stored using AES encryption", R.mipmap.ic_launcher, R.color.primary))
-        addSlide(AppIntroFragment.newInstance("SIMPLE", "Simple UI and and easy to use.", R.mipmap.ic_launcher, R.color.primary))
+        addSlide(IntroSlide.newInstance(R.layout.intro_layout_one))
+        addSlide(IntroSlide.newInstance(R.layout.intro_layout_two))
+        addSlide(IntroSlide.newInstance(R.layout.intro_layout_three))
 
-        setBarColor(getColor(R.color.accent))
-        setSeparatorColor(getColor(android.R.color.white))
-
-        showSkipButton(true)
-        isProgressButtonEnabled = true
-
-        setVibrateIntensity(30)
     }
 
     override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
-        // Do something when users tap on Skip button.
+        AppPreferenceManager.getPreference(this).isFirstTimeLaunch = true
+        gotoSetUpActivity()
     }
 
     override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
-        // Do something when users tap on Done button.
+        AppPreferenceManager.getPreference(this).isFirstTimeLaunch = true
+        gotoSetUpActivity()
     }
 
     override fun onSlideChanged(oldFragment: Fragment?, newFragment: Fragment?) {
         super.onSlideChanged(oldFragment, newFragment)
         // Do something when the slide changes.
+    }
+
+    private fun gotoSetUpActivity(){
+        startActivity(Intent(this, SetupActivity::class.java))
+        finish()
     }
 }

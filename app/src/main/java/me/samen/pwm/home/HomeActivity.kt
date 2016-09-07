@@ -9,18 +9,18 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
-import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.common.Data
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.edit.EditActivity
-import me.samen.pwm.home.AccListAdapter
+import me.samen.pwm.setup.AppIntroActivity
 import me.samen.pwm.setup.SetupActivity
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     var fab: FloatingActionButton? = null
     var recyclerView: RecyclerView? = null
     var appData: Data? = null
-    var adapter : AccListAdapter? = null
+    var adapter: AccListAdapter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,5 +67,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intnt)
             }
         }
+    }
+
+    private fun gotoSetUpActivity() {
+        startActivity(Intent(this, AppIntroActivity::class.java))
+        finish()
     }
 }

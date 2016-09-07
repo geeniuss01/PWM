@@ -42,7 +42,8 @@
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="me.samen.pwm.data" />
 
-        <activity android:name=".setup.AppIntroActivity">
+        <activity android:name=".setup.AppIntroActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         </activity>
     </application>
 

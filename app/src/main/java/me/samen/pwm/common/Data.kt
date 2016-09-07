@@ -4,8 +4,6 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.orm.SugarRecord
-import me.samen.pwm.common.EncryptionUtil
-import me.samen.pwm.common.UserAccount
 import java.util.*
 
 /**
