@@ -1,6 +1,7 @@
 package me.samen.pwm.setup
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.github.paolorotolo.appintro.AppIntro2
@@ -14,6 +15,7 @@ class AppIntroActivity : AppIntro2() {
         addSlide(IntroSlide.newInstance(R.layout.intro_layout_one))
         addSlide(IntroSlide.newInstance(R.layout.intro_layout_two))
         addSlide(IntroSlide.newInstance(R.layout.intro_layout_three))
+        setImageSkipButton(null)
 
     }
 
@@ -38,4 +40,5 @@ class AppIntroActivity : AppIntro2() {
         startActivity(Intent(this, SetupActivity::class.java))
         finish()
     }
+    
 }
