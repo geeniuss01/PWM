@@ -14,6 +14,7 @@ import me.samen.pwm.common.Data
 import me.samen.pwm.common.PWMApp
 import me.samen.pwm.edit.EditActivity
 import me.samen.pwm.setup.AppIntroActivity
+import me.samen.pwm.setup.AppPreferenceManager
 import me.samen.pwm.setup.SetupActivity
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -43,7 +44,9 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        if (!appData?.authenticated!!) {
+        if (AppPreferenceManager.getPreference(this).isFirstTimeLaunch) {
+            startActivity(Intent(this, AppIntroActivity::class.java))
+        } else if (!appData?.authenticated!!) {
             startActivity(Intent(this, SetupActivity::class.java))
         } else {
             appData?.getSugarAcc()
@@ -67,10 +70,5 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intnt)
             }
         }
-    }
-
-    private fun gotoSetUpActivity() {
-        startActivity(Intent(this, AppIntroActivity::class.java))
-        finish()
     }
 }
