@@ -4,16 +4,17 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import com.orm.SugarRecord
-import me.samen.pwm.common.EncryptionUtil
-import me.samen.pwm.common.UserAccount
 import java.util.*
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Handles user prefs, SugarORM DB, all strings are encrypted before storing to db
  *
  * Created by santosh on 27/8/16.
  */
-class Data(val appContext: Application, val encryptionUtil: EncryptionUtil) {
+@Singleton
+class Data @Inject constructor(val appContext: Application, val encryptionUtil: EncryptionUtil) {
     private var _authenticated: Boolean? = null
     var authenticated: Boolean = false
     var accounts: ArrayList<UserAccount> = ArrayList<UserAccount>()

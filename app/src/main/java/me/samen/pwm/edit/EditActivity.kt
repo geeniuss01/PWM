@@ -7,26 +7,26 @@ import android.view.View
 import android.widget.EditText
 import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_edit.*
-import me.samen.pwm.common.EncryptionUtil
-import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.common.Data
+import me.samen.pwm.common.EncryptionUtil
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.common.UserAccount
 
 class EditActivity : AppCompatActivity(), View.OnClickListener {
-    var appData: Data? = null
-    var encUtil: EncryptionUtil? = null
+    public var appData: Data? = null
+    public var encUtil: EncryptionUtil? = null
     var selectedAcc: UserAccount? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_edit)
+        (application as PWMApp).appComponent!!.injectA(this)
 
         val toolBar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolBar)
         supportActionBar!!.title = "Edit Account"
 
-        appData = (application as PWMApp).appData!!
-        encUtil = (application as PWMApp).encUtil
         buttonAddUpdate.setOnClickListener(this)
         buttonDelete.setOnClickListener(this)
         var pos = intent.getIntExtra("pos", -1)

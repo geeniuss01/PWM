@@ -8,8 +8,12 @@ import java.security.spec.InvalidKeySpecException
 import java.security.spec.InvalidParameterSpecException
 import javax.crypto.*
 import javax.crypto.spec.SecretKeySpec
+import javax.inject.Inject
+import javax.inject.Named
+import javax.inject.Singleton
 
-class EncryptionUtil(val password: String) {
+@Singleton
+class EncryptionUtil @Inject constructor(@Named("encKey") val password: String) {
 
     @Throws(NoSuchAlgorithmException::class, InvalidKeySpecException::class)
     fun generateKey(): SecretKey {

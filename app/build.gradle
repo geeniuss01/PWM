@@ -40,6 +40,9 @@ dependencies {
     compile 'com.android.support:support-v4:24.2.0'
     testCompile 'junit:junit:4.12'
 }
+kapt {
+    generateStubs = true
+}
 repositories {
     mavenCentral()
 }

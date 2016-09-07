@@ -1,6 +1,5 @@
 package me.samen.pwm.common
 
-import android.util.Log
 import com.orm.SugarApp
 import com.orm.SugarContext
 
@@ -9,17 +8,13 @@ import com.orm.SugarContext
  */
 class PWMApp : SugarApp() {
     val LOG_TAG = "PWMApp"
-    var appData : Data? = null
-    private val _encUtil = EncryptionUtil("11235813pentaclevenus5petalrose.")
-    val encUtil: EncryptionUtil
-        get() = _encUtil
+    //("11235813pentaclevenus5petalrose.")
+    var appComponent: AppComponent? = null
 
     override fun onCreate() {
         super.onCreate()
-        appData = Data(this, encUtil)
+        appComponent = DaggerAppComponent.builder().appModule(AppModule(this, "11235813pentaclevenus5petalrose.")).build()
         SugarContext.init(this)
-        var v = _encUtil.encryptMsg("secret_message")
-        Log.d(LOG_TAG, encUtil.decryptMsg(v))
     }
 
     override fun onTerminate() {

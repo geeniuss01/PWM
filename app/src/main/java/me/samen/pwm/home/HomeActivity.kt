@@ -9,11 +9,10 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.View
-import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.common.Data
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.edit.EditActivity
-import me.samen.pwm.home.AccListAdapter
 import me.samen.pwm.setup.SetupActivity
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,7 +28,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         val toolBar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolBar)
 
-        appData = (application as PWMApp).appData
+        (application as PWMApp).appComponent!!.injectA(this)
 
         fab = (findViewById(R.id.fab) as FloatingActionButton?)!!
         fab?.setOnClickListener { view ->

@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
 import kotlinx.android.synthetic.main.activity_setup.*
-import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.common.Data
+import me.samen.pwm.common.PWMApp
 
 class SetupActivity : AppCompatActivity() {
     var appData: Data? = null
@@ -16,7 +16,7 @@ class SetupActivity : AppCompatActivity() {
         setContentView(R.layout.layout_setup)
         val toolBar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolBar)
-        appData = (application as PWMApp).appData
+        (application as PWMApp).appComponent!!.injectA(this)
         editTextPin.setOnEditorActionListener { textView, i,
                                                 keyEvent ->
             checkPinAndFinish(textView.text.toString())
