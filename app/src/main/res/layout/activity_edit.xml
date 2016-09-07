@@ -10,42 +10,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".edit.EditActivity">
-
-    <EditText
-        android:enabled="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="@string/website"
-        android:ems="10"
-        android:id="@+id/editTextWebsite"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:layout_alignLeft="@+id/editTextId"
-        android:layout_alignStart="@+id/editTextId"/>
-
-    <EditText
-        android:enabled="false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:hint="@string/username"
-        android:id="@+id/editTextId"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/editTextWebsite"
-        android:layout_centerHorizontal="true"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:hint="@string/password"
-        android:id="@+id/editTextPwd"
-        android:layout_below="@+id/editTextId"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_account"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/website"
+            android:ems="10"
+            android:id="@+id/editTextWebsite"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="25dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_username"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/input_layout_account"
+        android:layout_height="wrap_content">
+        <EditText
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint="@string/username"
+            android:id="@+id/editTextId"
+            android:layout_marginTop="28dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_password"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/input_layout_username"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:hint="@string/password"
+            android:id="@+id/editTextPwd"
+            android:layout_marginTop="38dp"/>
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:layout_width="wrap_content"
@@ -53,7 +66,7 @@
         android:text="@string/add"
         style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/buttonAddUpdate"
-        android:layout_below="@+id/editTextPwd"
+        android:layout_below="@+id/input_layout_password"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="45dp"/>
