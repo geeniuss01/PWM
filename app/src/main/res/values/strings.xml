@@ -14,7 +14,8 @@
         completions."
     </string>
     <string name="title_activity_home">Dashboard</string>
-    <string name="Edit">Update</string>
+    <string name="Edit">Edit</string>
+    <string name="Update">Update</string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>
     <string name="website">Account name</string>

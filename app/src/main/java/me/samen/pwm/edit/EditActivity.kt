@@ -7,10 +7,10 @@ import android.view.View
 import android.widget.EditText
 import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.activity_edit.*
-import me.samen.pwm.common.EncryptionUtil
-import me.samen.pwm.common.PWMApp
 import me.samen.pwm.R
 import me.samen.pwm.common.Data
+import me.samen.pwm.common.EncryptionUtil
+import me.samen.pwm.common.PWMApp
 import me.samen.pwm.common.UserAccount
 
 class EditActivity : AppCompatActivity(), View.OnClickListener {
@@ -35,7 +35,7 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
             editTextWebsite.setText(selectedAcc?.website)
             editTextId.setText(selectedAcc?.username)
             editTextPwd.setText(selectedAcc?.pwd)
-            buttonAddUpdate.setText(resources.getString(R.string.Edit))
+            buttonAddUpdate.setText(resources.getString(R.string.Update))
         } else {
             supportActionBar!!.title = "New Account"
             buttonDelete.visibility = View.GONE
