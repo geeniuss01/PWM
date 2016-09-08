@@ -30,8 +30,7 @@
         android:paddingLeft="64dp"
         android:fontFamily="sans-serif-thin"
         android:paddingRight="64dp"
-        android:text="@string/intro_desc_one"
-        android:textColor="#ffffff"
+        android:text="@string/intro_desc_two"
         android:textSize="16sp" />
 
     <TextView
