@@ -31,6 +31,7 @@
         android:fontFamily="sans-serif-thin"
         android:paddingRight="64dp"
         android:text="@string/intro_desc_two"
+        android:textColor="#ffffff"
         android:textSize="16sp" />
 
     <TextView

@@ -33,8 +33,8 @@
     <string name="intro_title_one">It\'s Secure</string>
     <string name="intro_desc_one">Your data is stored locally - in an encrypted database \nApp doesn\'t connect to any server and does not track or maintain copies of your info.</string>
     <string name="intro_title_two">It\'s Offline.</string>
-    <string name="intro_desc_two">App is completely usable without internet \nYou choose a 4digit pin and will need to enter it whenever you open return to the app.</string>
+    <string name="intro_desc_two">App is completely usable without internet \nYou choose a 4-digit pin and will need to enter it whenever you open or return to the app.</string>
     <string name="intro_title_three">It\'s Simple.</string>
-    <string name="intro_desc_three">App is deisgned to be simple and responsive.\n It does no analyitcs, \nno background operations, \nno ads or other distractions. \nIt needs no extra permissions</string>
+    <string name="intro_desc_three">App is designed to be simple and responsive.\n It does no analyitcs, \nno background operations, \nno ads or other distractions. \nIt needs no extra permissions</string>
 
 </resources>
