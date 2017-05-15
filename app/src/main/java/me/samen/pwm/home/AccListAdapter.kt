@@ -25,14 +25,22 @@ listener2: View.OnClickListener) : RecyclerView.Adapter<AccListAdapter.AccListVi
 
     class AccListViewHolder(itemView: View, val listener1: View.OnClickListener, val listener2: View.OnClickListener) : RecyclerView.ViewHolder(itemView) {
         fun show(ua: UserAccount, pos: Int) {
-            itemView.textView.text = ua.website
-            itemView.textView.setOnClickListener(listener1)
-            itemView.textView.tag=pos
-            itemView.textView2.text = ua.username
-            itemView.textView2.setOnClickListener(listener1)
-            itemView.textView2.tag=pos
-            itemView.textView3.setOnClickListener(listener2)
-            itemView.textView3.tag=pos
+            itemView.apply {
+                textView.apply {
+                    text = ua.website
+                    tag = pos
+                    setOnClickListener(listener1)
+                }
+                textView2.apply {
+                    text = ua.username
+                    setOnClickListener(listener1)
+                    tag=pos
+                }
+                textView3.apply {
+                    setOnClickListener(listener2)
+                    tag = pos
+                }
+            }
         }
     }
 }

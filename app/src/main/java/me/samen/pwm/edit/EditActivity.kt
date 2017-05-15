@@ -14,8 +14,8 @@ import me.samen.pwm.common.PWMApp
 import me.samen.pwm.common.UserAccount
 
 class EditActivity : AppCompatActivity(), View.OnClickListener {
-    var appData: Data? = null
-    var encUtil: EncryptionUtil? = null
+    val appData : Data by lazy { (application as PWMApp).appData }
+    val encUtil: EncryptionUtil by lazy { (application as PWMApp).encUtil }
     var selectedAcc: UserAccount? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +25,11 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
         setSupportActionBar(toolBar)
         supportActionBar!!.title = "Edit Account"
 
-        appData = (application as PWMApp).appData!!
-        encUtil = (application as PWMApp).encUtil
         buttonAddUpdate.setOnClickListener(this)
         buttonDelete.setOnClickListener(this)
-        var pos = intent.getIntExtra("pos", -1)
+        val pos = intent.getIntExtra("pos", -1)
         if (pos != -1) {
-            selectedAcc = appData?.getSugarAcc()!!.get(pos!!)
+            selectedAcc = appData.getSugarAcc().get(pos)
             editTextWebsite.setText(selectedAcc?.website)
             editTextId.setText(selectedAcc?.username)
             editTextPwd.setText(selectedAcc?.pwd)
@@ -61,13 +59,13 @@ class EditActivity : AppCompatActivity(), View.OnClickListener {
                 if (selectedAcc == null) {
                     val ua = UserAccount(editTextWebsite.text.toString(), editTextId.text.toString(),
                             editTextPwd.text.toString())
-                    appData?.encrpt(ua!!)
+                    appData.encrpt(ua)
                     SugarRecord.save(ua)
                 } else {
-                    encUtil?.encryptMsg(editTextId.text.toString(), encUtil?.generateKey()!!)
+                    encUtil.encryptMsg(editTextId.text.toString(), encUtil.generateKey())
                     //selectedAcc!!.username = editTextId.text.toString()
                     selectedAcc!!.pwd = editTextPwd.text.toString()
-                    appData!!.encrpt(selectedAcc!!)
+                    appData.encrpt(selectedAcc!!)
                     SugarRecord.save(selectedAcc)
                 }
                 finish()

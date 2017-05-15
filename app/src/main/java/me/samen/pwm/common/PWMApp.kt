@@ -9,16 +9,15 @@ import com.orm.SugarContext
  */
 class PWMApp : SugarApp() {
     val LOG_TAG = "PWMApp"
-    var appData : Data? = null
+    val appData by lazy { Data(this, encUtil) }
     private val _encUtil = EncryptionUtil("11235813pentaclevenus5petalrose.")
     val encUtil: EncryptionUtil
         get() = _encUtil
 
     override fun onCreate() {
         super.onCreate()
-        appData = Data(this, encUtil)
         SugarContext.init(this)
-        var v = _encUtil.encryptMsg("secret_message")
+        val v = _encUtil.encryptMsg("secret_message")
         Log.d(LOG_TAG, encUtil.decryptMsg(v))
     }
 
